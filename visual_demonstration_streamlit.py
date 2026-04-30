@@ -95,9 +95,7 @@ model=load_model()
 vectorizer = load_vectorizer()
 
 def load_json(path):
-    base_dir = os.path.dirname("C:\Users\vladd\OneDrive\Documents\GitHub\DAT255Project\comments_file.JSON")
-    full_path=os.path.join(base_dir,path)
-    with open(full_path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -126,7 +124,7 @@ if st.button("Run"):
     st.write(result)
 st.write("Find out the average toxicity of a list of comments. This uses the JSON file in the project folder")
 if st.button("Run file"):
-    file=load_json("comments_file.json")
+    file=load_json("comments_file.JSON")
     results=[]
     for item in file:
         text = item["text"]
