@@ -1,4 +1,5 @@
 import json
+import os
 import streamlit as st
 import tensorflow as tf
 from tensorflow import keras
@@ -94,7 +95,9 @@ model=load_model()
 vectorizer = load_vectorizer()
 
 def load_json(path):
-    with open(path, "r", encoding="utf-8") as f:
+    base_dir = os.path.dirname("C:\Users\vladd\OneDrive\Documents\GitHub\DAT255Project\comments_file.JSON")
+    full_path=os.path.join(base_dir,path)
+    with open(full_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
